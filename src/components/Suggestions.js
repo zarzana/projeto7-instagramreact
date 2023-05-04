@@ -5,20 +5,23 @@ export default function Suggestions() {
                 Sugestões para você
                 <div>Ver tudo</div>
             </div>
-            <Suggestion username="bad.vibes.memes" userimage="assets/img/bad.vibes.memes.svg" description="Segue você" />
-            <Suggestion username="chibirdart" userimage="assets/img/chibirdart.svg" description="Segue você" />
-            <Suggestion username="razoesparaacreditar" userimage="assets/img/razoesparaacreditar.svg" description="Novo no Instagram" />
-            <Suggestion username="adorable_animals" userimage="assets/img/adorable_animals.svg" description="Segue você" />
-            <Suggestion username="smallcutecats" userimage="assets/img/smallcutecats.svg" description="Segue você" />
+            <Suggestion username="bad.vibes.memes" description="Segue você" />
+            <Suggestion username="chibirdart" description="Segue você" />
+            <Suggestion username="razoesparaacreditar" description="Novo no Instagram" />
+            <Suggestion username="adorable_animals" description="Segue você" />
+            <Suggestion username="smallcutecats" description="Segue você" />
         </div>
     )
 }
 
 function Suggestion(props) {
+
+    const userImage = `assets/img/${props.username}.svg`;
+
     return (
         <div class="sugestao">
             <div class="usuario">
-                <img src={props.userimage} alt={props.username} />
+                <img src={userImage} alt={props.username} />
                 <div class="texto">
                     <div class="nome">{props.username}</div>
                     <div class="razao">{props.description}</div>
