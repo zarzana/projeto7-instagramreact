@@ -1,14 +1,21 @@
 export default function Stories() {
+
+    const storyUsers = [
+        "9gag",
+        "meowed",
+        "barked",
+        "nathanwpylestrangeplanet",
+        "wawawicomics",
+        "respondeai",
+        "filomoderna",
+        "memeriagourmet"
+    ]
+
     return (
         <div class="stories">
-            <Story username="9gag" />
-            <Story username="meowed" />
-            <Story username="barked" />
-            <Story username="nathanwpylestrangeplanet" />
-            <Story username="wawawicomics" />
-            <Story username="respondeai" />
-            <Story username="filomoderna" />
-            <Story username="memeriagourmet" />
+
+            {storyUsers.map((user) => <Story key={user} username={user} />)}
+
             <div class="setinha">
                 <ion-icon name="chevron-forward-circle"></ion-icon>
             </div>

@@ -1,15 +1,24 @@
 export default function Suggestions() {
+
+    const userSuggestions = [
+        { username: "bad.vibes.memes", description: "Segue você" },
+        { username: "chibirdart", description: "Segue você" },
+        { username: "razoesparaacreditar", description: "Novo no Instagramê" },
+        { username: "adorable_animals", description: "Segue você" },
+        { username: "smallcutecats", description: "Segue você" }
+    ]
+
     return (
         <div class="sugestoes">
             <div class="titulo">
                 Sugestões para você
                 <div>Ver tudo</div>
             </div>
-            <Suggestion username="bad.vibes.memes" description="Segue você" />
-            <Suggestion username="chibirdart" description="Segue você" />
-            <Suggestion username="razoesparaacreditar" description="Novo no Instagram" />
-            <Suggestion username="adorable_animals" description="Segue você" />
-            <Suggestion username="smallcutecats" description="Segue você" />
+
+            {userSuggestions.map((userSuggestion) =>
+                <Suggestion key={userSuggestion.username} username={userSuggestion.username}
+                    description={userSuggestion.description} />)}
+
         </div>
     )
 }

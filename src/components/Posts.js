@@ -1,8 +1,18 @@
 export default function Posts() {
+
+    const feedPosts = [
+        { username: "meowed", image: "assets/img/gato-telefone.svg", likeusername: "respondeai", likenumber: "101.523" },
+        { username: "barked", image: "assets/img/dog.svg", likeusername: "adorable_animals", likenumber: "99.159" },
+        { username: "meowed", image: "assets/img/cat-hut.jpg", likeusername: "barked", likenumber: "152.092" },
+    ]
+
     return (
         <div class="posts">
-            <Post username="meowed" image="assets/img/gato-telefone.svg" likeusername="respondeai" likenumber="101.523" />
-            <Post username="barked" image="assets/img/dog.svg" likeusername="adorable_animals" likenumber="99.159" />
+
+            {feedPosts.map((foodPost) =>
+                <Post key={foodPost.username} username={foodPost.username} image={foodPost.image}
+                    likeusername={foodPost.likeusername} likenumber={foodPost.likenumber} />)}
+
         </div>
     )
 }
