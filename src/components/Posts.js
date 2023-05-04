@@ -10,7 +10,7 @@ export default function Posts() {
         <div class="posts">
 
             {feedPosts.map((foodPost) =>
-                <Post key={foodPost.username} username={foodPost.username} image={foodPost.image}
+                <Post username={foodPost.username} image={foodPost.image}
                     likeusername={foodPost.likeusername} likenumber={foodPost.likenumber} />)}
 
         </div>

@@ -16,7 +16,7 @@ export default function Suggestions() {
             </div>
 
             {userSuggestions.map((userSuggestion) =>
-                <Suggestion key={userSuggestion.username} username={userSuggestion.username}
+                <Suggestion username={userSuggestion.username}
                     description={userSuggestion.description} />)}
 
         </div>
