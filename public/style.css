@@ -70,10 +70,6 @@ body {
   margin: 0 5px;
 }
 
-.navbar .icones-mobile {
-  display: none;
-}
-
 .corpo {
   display: flex;
   justify-content: space-between;
