@@ -23,7 +23,7 @@ function Post(props) {
     const likeUserImage = `assets/img/${props.likeusername}.svg`
 
     return (
-        <div class="post">
+        <div class="post" data-test="post">
             <div class="topo">
                 <div class="usuario">
                     <img src={userImage} alt={props.username} />
@@ -34,23 +34,23 @@ function Post(props) {
                 </div>
             </div>
             <div class="conteudo">
-                <img src={props.image} alt={props.imagealt} />
+                <img src={props.image} alt={props.imagealt} data-test="post-image" />
             </div>
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon name="heart-outline"></ion-icon>
+                        <ion-icon name="heart-outline" data-test="like-post"></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon name="bookmark-outline"></ion-icon>
+                        <ion-icon name="bookmark-outline" data-test="save-post"></ion-icon>
                     </div>
                 </div>
                 <div class="curtidas">
                     <img src={likeUserImage} alt={props.likeusername} />
                     <div class="texto">
-                        Curtido por <strong>{props.likeusername}</strong> e <strong>outras {props.likenumber} pessoas</strong>
+                        Curtido por <strong>{props.likeusername}</strong> e <strong>outras <span data-test="likes-number">{props.likenumber}</span> pessoas</strong>
                     </div>
                 </div>
             </div>
