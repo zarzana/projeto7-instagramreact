@@ -25,10 +25,30 @@ function Post(props) {
     const likeUserImage = `assets/img/${props.likeusername}.svg`
 
     let [saveIcon, setSaveStatus] = useState('bookmark-outline');
+    let [likeIcon, setLikeStatus] = useState('heart-outline');
+    let [likeColor, setLikeColor] = useState({color: "black"});
 
     function saveToggle() {
-        if (saveIcon == 'bookmark-outline') { setSaveStatus('bookmark') }
+        if (saveIcon === 'bookmark-outline') { setSaveStatus('bookmark') }
         else { setSaveStatus('bookmark-outline') }
+    }
+
+    function likeToggle() {
+        if (likeIcon === 'heart-outline') {
+            setLikeStatus('heart');
+            setLikeColor({color: "red"});
+        }
+        else {
+            setLikeStatus('heart-outline');
+            setLikeColor({color: "black"});
+        }
+    }
+
+    function likePost() {
+        if (likeIcon === 'heart-outline') {
+            setLikeStatus('heart');
+            setLikeColor({color: "red"});
+        }
     }
 
     return (
@@ -43,12 +63,12 @@ function Post(props) {
                 </div>
             </div>
             <div class="conteudo">
-                <img src={props.image} alt={props.imagealt} data-test="post-image" />
+                <img src={props.image} alt={props.imagealt} onClick={likePost} data-test="post-image" />
             </div>
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon name="heart-outline" data-test="like-post"></ion-icon>
+                        <ion-icon name={likeIcon} style={likeColor} onClick={likeToggle} data-test="like-post"></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
