@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 export default function Posts() {
 
     const feedPosts = [
@@ -22,6 +24,13 @@ function Post(props) {
     const userImage = `assets/img/${props.username}.svg`;
     const likeUserImage = `assets/img/${props.likeusername}.svg`
 
+    let [saveIcon, setSaveStatus] = useState('bookmark-outline');
+
+    function saveToggle() {
+        if (saveIcon == 'bookmark-outline') { setSaveStatus('bookmark') }
+        else { setSaveStatus('bookmark-outline') }
+    }
+
     return (
         <div class="post" data-test="post">
             <div class="topo">
@@ -44,7 +53,7 @@ function Post(props) {
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon name="bookmark-outline" data-test="save-post"></ion-icon>
+                        <ion-icon name={saveIcon} onClick={saveToggle} data-test="save-post"></ion-icon>
                     </div>
                 </div>
                 <div class="curtidas">
