@@ -63,7 +63,7 @@ function Post(props) {
                 </div>
             </div>
             <div class="conteudo">
-                <img src={props.image} alt={props.imagealt} onClick={likePost} data-test="post-image" />
+                <img src={props.image} alt={props.imagealt} onDoubleClick={likePost} data-test="post-image" />
             </div>
             <div class="fundo">
                 <div class="acoes">
