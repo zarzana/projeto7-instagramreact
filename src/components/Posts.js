@@ -3,16 +3,17 @@ import { useState } from "react"
 export default function Posts() {
 
     const feedPosts = [
-        { username: "meowed", image: "assets/img/gato-telefone.svg", likeusername: "respondeai", likenumber: "101.523" },
-        { username: "barked", image: "assets/img/dog.svg", likeusername: "adorable_animals", likenumber: "99.159" },
-        { username: "meowed", image: "assets/img/cat-hut.jpg", likeusername: "barked", likenumber: "152.092" },
+        { username: "meowed", image: "assets/img/gato-telefone.svg", likeusername: "respondeai", likenumber: 101523 },
+        { username: "barked", image: "assets/img/dog.svg", likeusername: "adorable_animals", likenumber: 99159 },
+        { username: "meowed", image: "assets/img/cat-hut.jpg", likeusername: "barked", likenumber: 152092 },
     ]
 
     return (
         <div className="posts">
 
-            {feedPosts.map((foodPost) =>
-                <Post username={foodPost.username} image={foodPost.image}
+            {feedPosts.map((foodPost, index) =>
+                <Post key={index}
+                    username={foodPost.username} image={foodPost.image}
                     likeusername={foodPost.likeusername} likenumber={foodPost.likenumber} />)}
 
         </div>
@@ -26,7 +27,8 @@ function Post(props) {
 
     let [saveIcon, setSaveStatus] = useState('bookmark-outline');
     let [likeIcon, setLikeStatus] = useState('heart-outline');
-    let [likeColor, setLikeColor] = useState({color: "black"});
+    let [likeColor, setLikeColor] = useState({ color: "black" });
+    let [likeCount, setLikeCount] = useState(props.likenumber);
 
     function saveToggle() {
         if (saveIcon === 'bookmark-outline') { setSaveStatus('bookmark') }
@@ -36,18 +38,21 @@ function Post(props) {
     function likeToggle() {
         if (likeIcon === 'heart-outline') {
             setLikeStatus('heart');
-            setLikeColor({color: "red"});
+            setLikeColor({ color: "red" });
+            setLikeCount(likeCount + 1);
         }
         else {
             setLikeStatus('heart-outline');
-            setLikeColor({color: "black"});
+            setLikeColor({ color: "black" });
+            setLikeCount(likeCount - 1);
         }
     }
 
     function likePost() {
         if (likeIcon === 'heart-outline') {
             setLikeStatus('heart');
-            setLikeColor({color: "red"});
+            setLikeColor({ color: "red" });
+            setLikeCount(likeCount + 1);
         }
     }
 
@@ -79,7 +84,7 @@ function Post(props) {
                 <div className="curtidas">
                     <img src={likeUserImage} alt={props.likeusername} />
                     <div className="texto">
-                        Curtido por <strong>{props.likeusername}</strong> e <strong>outras <span data-test="likes-number">{props.likenumber}</span> pessoas</strong>
+                        Curtido por <strong>{props.likeusername}</strong> e <strong>outras <span data-test="likes-number">{likeCount}</span> pessoas</strong>
                     </div>
                 </div>
             </div>
