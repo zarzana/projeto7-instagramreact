@@ -16,9 +16,9 @@ export default function User() {
     }
 
     return (
-        <div class="usuario">
+        <div className="usuario">
             <img src={userImage} alt="imagem de perfil" onClick={changeImage} data-test="profile-image" />
-            <div class="texto">
+            <div className="texto">
                 <span>
                     <strong><span data-test="name">{username}</span></strong>
                     <ion-icon name="pencil" onClick={changeName} data-test="edit-name"></ion-icon>

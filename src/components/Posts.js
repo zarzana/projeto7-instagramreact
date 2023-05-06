@@ -9,7 +9,7 @@ export default function Posts() {
     ]
 
     return (
-        <div class="posts">
+        <div className="posts">
 
             {feedPosts.map((foodPost) =>
                 <Post username={foodPost.username} image={foodPost.image}
@@ -52,21 +52,21 @@ function Post(props) {
     }
 
     return (
-        <div class="post" data-test="post">
-            <div class="topo">
-                <div class="usuario">
+        <div className="post" data-test="post">
+            <div className="topo">
+                <div className="usuario">
                     <img src={userImage} alt={props.username} />
                     {props.username}
                 </div>
-                <div class="acoes">
+                <div className="acoes">
                     <ion-icon name="ellipsis-horizontal"></ion-icon>
                 </div>
             </div>
-            <div class="conteudo">
+            <div className="conteudo">
                 <img src={props.image} alt={props.imagealt} onDoubleClick={likePost} data-test="post-image" />
             </div>
-            <div class="fundo">
-                <div class="acoes">
+            <div className="fundo">
+                <div className="acoes">
                     <div>
                         <ion-icon name={likeIcon} style={likeColor} onClick={likeToggle} data-test="like-post"></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
@@ -76,9 +76,9 @@ function Post(props) {
                         <ion-icon name={saveIcon} onClick={saveToggle} data-test="save-post"></ion-icon>
                     </div>
                 </div>
-                <div class="curtidas">
+                <div className="curtidas">
                     <img src={likeUserImage} alt={props.likeusername} />
-                    <div class="texto">
+                    <div className="texto">
                         Curtido por <strong>{props.likeusername}</strong> e <strong>outras <span data-test="likes-number">{props.likenumber}</span> pessoas</strong>
                     </div>
                 </div>

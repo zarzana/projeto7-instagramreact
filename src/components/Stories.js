@@ -12,11 +12,11 @@ export default function Stories() {
     ]
 
     return (
-        <div class="stories">
+        <div className="stories">
 
             {storyUsers.map((user) => <Story username={user} />)}
 
-            <div class="setinha">
+            <div className="setinha">
                 <ion-icon name="chevron-forward-circle"></ion-icon>
             </div>
         </div>
@@ -28,11 +28,11 @@ function Story(props) {
     const userImage = `assets/img/${props.username}.svg`;
 
     return (
-        <div class="story">
-            <div class="imagem">
+        <div className="story">
+            <div className="imagem">
                 <img src={userImage} alt={props.username} />
             </div>
-            <div class="usuario">
+            <div className="usuario">
                 {props.username}
             </div>
         </div>

@@ -9,8 +9,8 @@ export default function Suggestions() {
     ]
 
     return (
-        <div class="sugestoes">
-            <div class="titulo">
+        <div className="sugestoes">
+            <div className="titulo">
                 Sugestões para você
                 <div>Ver tudo</div>
             </div>
@@ -28,15 +28,15 @@ function Suggestion(props) {
     const userImage = `assets/img/${props.username}.svg`;
 
     return (
-        <div class="sugestao">
-            <div class="usuario">
+        <div className="sugestao">
+            <div className="usuario">
                 <img src={userImage} alt={props.username} />
-                <div class="texto">
-                    <div class="nome">{props.username}</div>
-                    <div class="razao">{props.description}</div>
+                <div className="texto">
+                    <div className="nome">{props.username}</div>
+                    <div className="razao">{props.description}</div>
                 </div>
             </div>
-            <div class="seguir">Seguir</div>
+            <div className="seguir">Seguir</div>
         </div>
     )
 }
